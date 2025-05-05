@@ -30,5 +30,31 @@ function checkAge(name, age) {
         console.log(oldEnoughMsg);
     }
 }
-checkAge("Ben", 12)
-checkAge("Seth", 16)
+checkAge("Fudgie", 12);
+checkAge("Queso", 16);
+checkAge("Gerardo", 21);
+
+//exercise 3
+function checkQuadrant(x,y) {
+    if (x > 0 && y > 0) {
+        return "Quadrant 1";
+    } else if (x < 0 && y > 0) {
+        return "Quadrant 2";
+    } else if (x < 0 && y < 0) {
+        return "Quadrant 3";
+    } else if (x > 0 && y < 0) {
+        return "Quadrant 4";
+    } else if (x == 0 && y != 0) {
+        return "X Axis";
+    }else {
+        return "Y Axis";
+    }
+}
+
+console.log(checkQuadrant(11,1));
+console.log(checkQuadrant(-11, 1));
+console.log(checkQuadrant(-1,-11));
+console.log(checkQuadrant(1,-11));
+console.log(checkQuadrant(0,-11));
+console.log(checkQuadrant(11,0));
+console.log(checkQuadrant(0,0));
