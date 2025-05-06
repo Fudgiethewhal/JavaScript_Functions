@@ -58,3 +58,61 @@ console.log(checkQuadrant(1,-11));
 console.log(checkQuadrant(0,-11));
 console.log(checkQuadrant(11,0));
 console.log(checkQuadrant(0,0));
+
+//exercise 4
+function isValidTriangle(a,b,c) {
+    return a + b > c && a + c > b && b + c > a;
+}
+function isValidTriangle(a, b, c) {
+    let isValid = isValidTriangle(a, b, c);
+    if (isValid) {
+        if (a == b && b == c) {
+            return `Equilateral`;
+        } else if (a == b || b == c || a == c) {
+            return `Isosceles`;
+        } else {
+            return `Scalene`;
+        }
+    } else {
+        return `Not a valid triangle.`;
+    }     
+}
+
+console.log(checkTriangle(2,3,4)); //scalene
+console.log(checkTriangle(2,2,2));//equilateral
+console.log(checkTriangle(1,2,2)); //isosceles
+console.log(checkTriangle(1,1,2)); //invalid
+
+//exercise 5 
+function dataUsageFeedback(planLimit, day, usage) {
+    let periodLength = 30;
+    let currentAvg = usage / day;
+    let projectedAvg = planLimit / periodLength;
+    let remainingData = planLimit - usage;
+    let statusMsg;
+    
+    console.log(`${day} day(s) used, ${periodLength - day} day(s) remaining`);
+    console.log(`Average projected use: ${projectedAvg} GB/day`);
+    
+    if (currentAvg > projectedAvg) {
+        statusMsg = "EXCEEDING"; 
+    } else if (currentAvg < projectedAvg) {
+        statusMsg = "BELOW";
+    } else {
+        statusMsg = "AT";
+    }
+    console.log(`You are ${statusMsg} your average daily use (${currentAvg} GB/day),
+     continuing this high usage, you'll exceed your data plan by ${remainingData} GB.`);
+    
+    console.log(`You are EXCEEDING your average daily use (${currentAvg} GB/day),
+     continuing this usage, you'll end up using 11.9 GB from your data limit.`);
+}
+dataUsageFeedback(50, 12, 25);
+
+// 15 days used, 15 days remaining
+// Average daily use: 3.333 GB/day
+// You are EXCEEDING your average daily use (3.73 GB/day),
+// continuing this high usage, you'll exceed your data plan by
+// 11.9 GB.
+//     To stay below your data plan, use no more than 2.93 GB/day.
+    
