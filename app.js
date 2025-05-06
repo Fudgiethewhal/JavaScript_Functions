@@ -11,7 +11,7 @@ const printOdds = (count) => {
 printOdds(-10); 
 printOdds(10);
 // Exercise 2 Section
-function checkAge(name, age) {
+const checkAge = (name, age) => {
     let oldEnoughMsg = `Congrats ${name}! You are old enough to drive!`;
     let tooYoungMsg = `Sorry ${name}, you are too young to drive ${
         16 - age
@@ -22,7 +22,7 @@ function checkAge(name, age) {
     } else {
         console.log(oldEnoughMsg);
     }
-}
+};
 checkAge("Fudgie", 12);
 checkAge("Queso", 16);
 checkAge("Gerardo", 21);
