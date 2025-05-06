@@ -1,11 +1,11 @@
 // Exercise 1 Section
-function printOdds(count) {
+const printOdds = (count) => {
     for (let i = 1; i <= Math.abs(count); i++) {
         if(i % 2 != 0) {
             console.log(i * Math.sign(count));
         }
     }
-}
+};
 
 
 printOdds(-10); 
@@ -77,7 +77,7 @@ console.log(checkTriangle(1,2,2)); //isosceles
 console.log(checkTriangle(1,1,2)); //invalid
 
 //exercise 5 
-function dataUsageFeedback(planLimit, day, usage) {
+const dataUsageFeedback = (planLimit, day, usage) => {
     let periodLength = 30;
     let currentAvg = usage / day;
     let projectedAvg = planLimit / periodLength;
