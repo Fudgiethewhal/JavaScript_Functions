@@ -88,11 +88,10 @@ function dataUsageFeedback(planLimit, day, usage) {
     let periodLength = 30;
     let currentAvg = usage / day;
     let projectedAvg = planLimit / periodLength;
+    let remainingDays = periodLength - day;
     let remainingData = planLimit - usage;
+    let projectedUsage = remainingDays * currentAvg;
     let statusMsg;
-    
-    console.log(`${day} day(s) used, ${periodLength - day} day(s) remaining`);
-    console.log(`Average projected use: ${projectedAvg} GB/day`);
     
     if (currentAvg > projectedAvg) {
         statusMsg = "EXCEEDING"; 
@@ -101,18 +100,23 @@ function dataUsageFeedback(planLimit, day, usage) {
     } else {
         statusMsg = "AT";
     }
-    console.log(`You are ${statusMsg} your average daily use (${currentAvg} GB/day),
-     continuing this high usage, you'll exceed your data plan by ${remainingData} GB.`);
     
-    console.log(`You are EXCEEDING your average daily use (${currentAvg} GB/day),
-     continuing this usage, you'll end up using 11.9 GB from your data limit.`);
-}
-dataUsageFeedback(50, 12, 25);
+    console.log(`${day} day(s) used, ${remainingDays} day(s) remaining
+    Average projected use: ${projectedAvg.toFixed(2)} GB/day.    
+    You are ${statusMsg} your average daily use (${currentAvg.toFixed(2)} GB/day),
+        continuing this usage, you'll end up using ${
+        planLimit - (usage + projectedUsage)
+    } GB from your data limit.
+    To stay below your data plan, use no more than ${(
+        remainingData /remainingDays
+    ).toFixed(2)} GB/day.`);
+} 
+dataUsageFeedback(50, 10, 25);
 
 // 15 days used, 15 days remaining
 // Average daily use: 3.333 GB/day
 // You are EXCEEDING your average daily use (3.73 GB/day),
 // continuing this high usage, you'll exceed your data plan by
 // 11.9 GB.
-//     To stay below your data plan, use no more than 2.93 GB/day.
+// To stay below your data plan, use no more than 2.93 GB/day.
     
