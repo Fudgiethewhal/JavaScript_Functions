@@ -1,17 +1,17 @@
 // Exercise 1 Section
-const printOdds = (count) => {
-    for (let i = 1; i <= Math.abs(count); i++) {
+function printOdds(count) {
+    for (let i = 1; i <= count; i++) {
         if(i % 2 != 0) {
-            console.log(i * Math.sign(count));
+            console.log(i);
         }
     }
-};
+}
 
 
-printOdds(-10); 
-printOdds(10);
+printOdds(10); 
+printOdds(100);
 // Exercise 2 Section
-const checkAge = (name, age) => {
+function checkAge(name, age) {
     let oldEnoughMsg = `Congrats ${name}! You are old enough to drive!`;
     let tooYoungMsg = `Sorry ${name}, you are too young to drive ${
         16 - age
@@ -22,7 +22,7 @@ const checkAge = (name, age) => {
     } else {
         console.log(oldEnoughMsg);
     }
-};
+}
 checkAge("Fudgie", 12);
 checkAge("Queso", 16);
 checkAge("Gerardo", 21);
