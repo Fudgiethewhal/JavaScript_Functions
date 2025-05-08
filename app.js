@@ -39,8 +39,10 @@ function checkQuadrant(x,y) {
         return "Quadrant 4";
     } else if (x == 0 && y != 0) {
         return "X Axis";
-    }else {
+    }else if (x != 0 && y == 0) {
         return "Y Axis";
+    } else {
+        return "Origin";       
     }
 }
 
@@ -50,13 +52,13 @@ console.log(checkQuadrant(-1,-11));
 console.log(checkQuadrant(1,-11));
 console.log(checkQuadrant(0,-11));
 console.log(checkQuadrant(11,0));
-console.log(checkQuadrant(0,0));
+console.log(checkQuadrant(0,0)); 
 
 //exercise 4
 function isValidTriangle(a,b,c) {
-    return a + b > c && a + c > b && b + c > a;
+    return a + b > c || a + c > b || b + c > a;
 }
-function isValidTriangle(a, b, c) {
+function checkTriangle(a, b, c) {
     let isValid = isValidTriangle(a, b, c);
     if (isValid) {
         if (a == b && b == c) {
